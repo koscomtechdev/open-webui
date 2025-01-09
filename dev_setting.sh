@@ -53,3 +53,5 @@ if [ -n "$SPACE_ID" ]; then
 
   export WEBUI_URL=${SPACE_HOST}
 fi
+
+source env-deploy
