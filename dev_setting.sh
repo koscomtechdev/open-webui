@@ -54,4 +54,12 @@ if [ -n "$SPACE_ID" ]; then
   export WEBUI_URL=${SPACE_HOST}
 fi
 
-source env-deploy
+# source env-deploy
+if [ -f env-deploy ]; then
+  echo "Sourcing environment variables from env-deploy file"
+  set -a
+  source env-deploy
+  set +a
+else
+  echo "env-deploy file not found, skipping."
+fi
