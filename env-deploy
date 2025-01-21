@@ -1,11 +1,24 @@
 # Deployment Configuration
-VERSION="2025_01_14"
+VERSION="2025_01_21"
 IMAGE_BASE_NAME="koscomtechdev/open-webui"
 CONTAINER_NAME="open-webui_deploy"
 HOST_PORT=8502
 CONTAINER_PORT=8080
 LOCAL_CACHE_DIR="./backend/data/cache"
 BUILDPLATFORM="linux/amd64"
+CORS_ALLOW_ORIGIN=*
+
+# OAuth
+ENABLE_OAUTH_SIGNUP=true
+OAUTH_MERGE_ACCOUNTS_BY_EMAIL=true
+
+OAUTH_CLIENT_ID="open-webui"
+OAUTH_CLIENT_SECRET="SECRETE"
+OPENID_PROVIDER_URL="http://[keycloak_url]/realms/myrealm/.well-known/openid-configuration"
+OAUTH_PROVIDER_NAME="keycloak"
+OAUTH_SCOPES="openid profile email groups"
+ENABLE_OAUTH_GROUP_MANAGEMENT=true
+
 
 # Application Configuration
 CHUNK_SIZE=800
@@ -14,6 +27,7 @@ CHUNK_OVERLAP=200
 RAG_EMBEDDING_MODEL=jhgan/ko-sroberta-multitask
 
 # dev
+# ENV=dev
 # OLLAMA_BASE_URL=http://localhost:11434
 # OFFLINE_MODE=false
 # DATA_DIR=./data
